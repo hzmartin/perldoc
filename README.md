@@ -1,2 +1,2 @@
 # perltut
-perl examples
+perl tutorial
