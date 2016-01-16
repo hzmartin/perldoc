@@ -1,2 +1,2 @@
-# perltut
-perl tutorial
+# perldoc
+perldoc examples
