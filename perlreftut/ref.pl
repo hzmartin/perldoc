@@ -2,6 +2,9 @@
 use strict;
 use warnings;
 
+# array = {$aref}
+# hash = {$href}
+
 print "usage: $0 ".join($", @ARGV)."\n";
 
 my @animals = ("camel", "monkey", "dog", "rat", "llama", "owl");
