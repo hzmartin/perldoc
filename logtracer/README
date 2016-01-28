@@ -1,0 +1,2 @@
+cat 1.log|./user-logtracer.pl d8a07a591d601a93 成功 10|./sort-logtracer.pl
+cat 1.log|./thread-logtracer.pl 10.160.215.44 35712830 d8a07a591d601a93 a 1
