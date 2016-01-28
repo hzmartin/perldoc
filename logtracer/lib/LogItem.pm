@@ -1,4 +1,4 @@
-package MyFile;
+package LogItem;
 
 sub new{
  my $class = shift;

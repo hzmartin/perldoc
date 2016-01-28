@@ -11,5 +11,5 @@ use lib './lib';
 
 use MyFile;
 
-my $file = MyFile->new("hello");
+my $file = MyFile->new({path=>"hello"});
 print $file->{path} , "\n";
