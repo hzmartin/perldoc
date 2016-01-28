@@ -5,12 +5,11 @@ use lib './lib';
 
 use LogItem;
 
-if(@ARGV < 3){
-    print "usage: ./logtracer.pl openid keyword max_hitcount\n";
+if(@ARGV < 1){
+    print "usage: ./logtracer.pl openid\n";
     exit;
 }
-my ($openid, $keyword, $max_hitcount) = @ARGV;
-my $hitcount = 0;
+my ($openid) = @ARGV;
 
 while(<STDIN>){
   if(/(^\d{4})-(\d{2})-(\d{2})\s(\d{2}):(\d{2}):(\d{2}),(\d{3})\s-\s.+\s\[.+-(.{13}).+\$(\d+)\]\s([INFO|ERROR|FATAL|DEBUG|WARN]+)\s(.+)/){
@@ -27,12 +26,6 @@ while(<STDIN>){
             log_detail => $log_detail
          });
          if($log_detail =~ $openid){
-            if($log_detail =~ $keyword){
-                  $hitcount++;
-                  if($hitcount > $max_hitcount){
-                       last;
-                  }
-            }
 	    print $log_detail."\n";
 	}
   }else{

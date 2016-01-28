@@ -26,12 +26,12 @@ while(<STDIN>){
             log_level => $log_level,
             log_detail => $log_detail
          });
+        if($hitcount >= $max_hitcount){
+            last;
+        }
         if($target_hostip eq $host_ip && $target_thread eq $thread_id){
             if($log_detail =~ $openid && $log_detail =~ $keyword){
                   $hitcount++;
-                  if($hitcount > $max_hitcount){
-                       last;
-                  }
             }
 	    print $log_detail."\n";
 	}

@@ -5,6 +5,14 @@ use lib './lib';
 
 use LogItem;
 
+
+if(@ARGV < 2){
+    print "usage: ./logtracer.pl keyword max_hitcount\n";
+    exit;
+}
+my ($keyword, $max_hitcount) = @ARGV;
+my $hitcount = 0;
+
 my @target_log_list =();
 
 while(<STDIN>){
@@ -26,6 +34,12 @@ while(<STDIN>){
     #print "in else: $_ ";
   }
 }
+if($hitcount >= $max_hitcount){
+     last;
+}
 foreach(sort {$a->{log_time} cmp $b->{log_time}} @target_log_list){
+     if($_->{log_detail} =~ $keyword){
+           $hitcount++;
+     }
      print $_->{log_detail}."\n";
 }
