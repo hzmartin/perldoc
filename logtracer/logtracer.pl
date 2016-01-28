@@ -11,7 +11,8 @@ if(@ARGV != 2){
 	exit;
 }
 my ($openid, $keyword) = @ARGV;
-
+print "openid=$openid, keyword=$keyword\n";
+print "=================================\n";
 my %thread_log_map = ();
 my @user_log_list = ();
 my @target_log_list =();
