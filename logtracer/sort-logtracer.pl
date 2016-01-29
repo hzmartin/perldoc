@@ -34,10 +34,10 @@ while(<STDIN>){
     #print "in else: $_ ";
   }
 }
-if($hitcount >= $max_hitcount){
-     last;
-}
 foreach(sort {$a->{log_time} cmp $b->{log_time}} @target_log_list){
+     if($hitcount >= $max_hitcount){
+          last;
+     }
      if($_->{log_detail} =~ $keyword){
            $hitcount++;
      }
